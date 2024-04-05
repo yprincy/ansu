@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missing You Puzzle</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #ffffff; /* White background color */
+    }
+    h1 {
+      color: #ff66ff; /* Header color */
+    }
+    #puzzle-container {
+      margin-top: 50px;
+    }
+    .puzzle-piece {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      background-color: #ff99cc; /* Puzzle piece color */
+      border: 2px solid #fff;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 5px;
+      transition: transform 0.3s ease-in-out;
+    }
+    .puzzle-piece:hover {
+      transform: rotate(360deg) scale(1.1); /* Rotate puzzle piece on hover */
+    }
+    .hidden {
+      display: none;
+    }
+    #message {
+      margin-top: 50px;
+      font-size: 24px; /* Increase font size */
+      color: #993366; /* Message color */
+      animation: pulse 2s infinite; /* Animation effect */
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    .image-container {
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-around;
+    }
+    .image {
+      width: 200px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hey Ansuuuuuu!!!,</h1>
+  <p>picy is missing you it seems</p>
+  <div id="puzzle-container">
+    <div class="puzzle-piece" onclick="revealPiece(1)"></div>
+    <div class="puzzle-piece" onclick="revealPiece(2)"></div>
+    <div class="puzzle-piece" onclick="revealPiece(3)"></div>
+    <div class="puzzle-piece" onclick="revealPiece(4)"></div>
+    <div class="puzzle-piece" onclick="revealPiece(5)"></div>
+  </div>
+  <div id="message" class="hidden">
+    <p>Do you have a map? I just keep getting lost in your eyes...</p>
+  </div>
+  <div class="image-container">
+    <img src="https://i.pinimg.com/originals/57/68/b4/5768b458d6c9c38676bfade7df010944.gif" class="image" alt="Cute GIF">
+    <img src="https://i.pinimg.com/originals/f7/44/2b/f7442bdb32d72b584a2ba60870870e72.gif" class="image" alt="Cute GIF">
+    <img src="https://i.pinimg.com/originals/fa/a2/bf/faa2bf2fc4a1ac4dec5d22242cc34f53.gif" class="image" alt="Cute GIF">
+  </div>
+  <script>
+    let revealedPieces = 0;
+
+    function revealPiece(pieceNumber) {
+      document.getElementsByClassName('puzzle-piece')[pieceNumber - 1].style.visibility = 'hidden';
+      revealedPieces++;
+      if (revealedPieces === 5) {
+        document.getElementById('message').classList.remove('hidden');
+      }
+      // Display pickup line when all puzzles are clicked
+      if (revealedPieces === 5) {
+        displayPickupLine();
+      }
+      // Display decorative effect
+      showDecorativeEffect();
+    }
+
+    function displayPickupLine() {
+      document.getElementById('message').classList.remove('hidden');
+    }
+
+    function showDecorativeEffect() {
+      // Create and add decorative elements
+      let stars = document.createElement("div");
+      stars.className = "stars";
+      document.body.appendChild(stars);
+
+      let glitter = document.createElement("div");
+      glitter.className = "glitter";
+      document.body.appendChild(glitter);
+
+      // Remove decorative elements after a delay
+      setTimeout(function() {
+        stars.remove();
+        glitter.remove();
+      }, 3000); // Remove after 3 seconds
+    }
+  </script>
+</body>
+</html>
